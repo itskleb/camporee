@@ -1,0 +1,5 @@
+pyrebase
+streamlit
+pandas
+math
+plotly
