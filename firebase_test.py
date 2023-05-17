@@ -13,13 +13,13 @@ import plotly.express as px
 st.set_page_config(page_title='Camporee Scoring',page_icon="🏆")
 
 firebaseConfig = {
-  "apiKey": "AIzaSyBxH-_oOo9usPLkr8geWe9ZgYz5eI5F8z0",
-  "authDomain": "test-project-fd621.firebaseapp.com",
-  "projectId": "test-project-fd621",
-  "storageBucket": "test-project-fd621.appspot.com",
-  "messagingSenderId": "404477510722",
-  "appId": "1:404477510722:web:829773ead51a253591d9db",
-  "databaseURL":"https://test-project-fd621-default-rtdb.firebaseio.com/"
+ "apiKey": st.secrets['apiKey'],
+ "authDomain": st.secrets['authDomain'],
+ "projectId": st.secrets['projectId'],
+ "storageBucket": st.secrets['storageBucket'],
+ "messagingSenderId": st.secrets['messagingSenderId'],
+  "appId": st.secrets['appId'],
+  "databaseURL": st.secrets['databaseURL']
 }
 stations = ['Check-In','Archery','Fishing','Shelter Building','Signaling','Fire Building','Two Person Saw','Orienteering','Cooking','Animal Prints','Leader Bonus']
 
