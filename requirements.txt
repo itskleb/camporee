@@ -1,4 +1,4 @@
-pyrebase
+Pyrebase
 streamlit
 pandas
 math
