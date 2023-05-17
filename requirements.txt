@@ -1,5 +1,4 @@
 Pyrebase
 streamlit
 pandas
-math
 plotly
