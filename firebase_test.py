@@ -200,7 +200,7 @@ with tab2:
 
 
 with tab3:
-
+   
    st.write('Leading Patrols')
    score_list = [col for col in temp_list if '_adj_score' in col]
    score_list.append('patrol')
@@ -208,6 +208,7 @@ with tab3:
    #out_df = st.session_state.adj_df
    #out_df_scores = pd.DataFrame(out_df[score_list].sum(axis=1).sort_values(ascending=False))
    see_it = st.session_state.adj_df[score_list].set_index('patrol')
+   see_it
    see_it['total'] = see_it.sum(axis=1)
    see_it = see_it.sort_values(by='total',ascending=False)
    col1, col2, col3 = st.columns(3)
