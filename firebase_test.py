@@ -200,23 +200,22 @@ with tab2:
 
 
 with tab3:
-    try:
-        st.write('Leading Patrols')
-        score_list = [col for col in temp_list if '_adj_score' in col]
-        score_list.append('patrol')
-        score_list.append('unit')
-        out_df = st.session_state.adj_df
-        out_df_scores = pd.DataFrame(out_df[score_list].sum(axis=1).sort_values(ascending=False))
-        see_it = st.session_state.adj_df[score_list].set_index('patrol')
-        see_it['total'] = see_it.sum(axis=1)
-        see_it = see_it.sort_values(by='total',ascending=False)
-        col1, col2, col3 = st.columns(3)
-        col1.metric(label=f"{see_it['total'].index[0]} {see_it['unit'][0]}",value=round(see_it['total'][0],3))
-        col2.metric(label=f"{see_it['total'].index[1]} {see_it['unit'][1]}",value=round(see_it['total'][1],3))
-        col3.metric(label=f"{see_it['total'].index[2]} {see_it['unit'][2]}",value=round(see_it['total'][2],3))
-        see_it
-    except:
-        st.write('Error. Resolve')
+
+   st.write('Leading Patrols')
+   score_list = [col for col in temp_list if '_adj_score' in col]
+   score_list.append('patrol')
+   score_list.append('unit')
+   out_df = st.session_state.adj_df
+   out_df_scores = pd.DataFrame(out_df[score_list].sum(axis=1).sort_values(ascending=False))
+   see_it = st.session_state.adj_df[score_list].set_index('patrol')
+   see_it['total'] = see_it.sum(axis=1)
+   see_it = see_it.sort_values(by='total',ascending=False)
+   col1, col2, col3 = st.columns(3)
+   col1.metric(label=f"{see_it['total'].index[0]} {see_it['unit'][0]}",value=round(see_it['total'][0],3))
+   col2.metric(label=f"{see_it['total'].index[1]} {see_it['unit'][1]}",value=round(see_it['total'][1],3))
+   col3.metric(label=f"{see_it['total'].index[2]} {see_it['unit'][2]}",value=round(see_it['total'][2],3))
+   see_it
+
 with tab4:
 
     st.write('Time Adjustment Function')
