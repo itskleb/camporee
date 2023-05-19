@@ -50,9 +50,9 @@ for i in range(0,9):
  if i%3 == 0:
   col1.metric(label=prettify[i],value=st.session_state.score_df[prettify[i]].loc[pat])
  elif i%3 == 1:
-  col2.metric(label=prettify[i],value=i)
+  col2.metric(label=prettify[i],value=st.session_state.score_df[prettify[i]].loc[pat])
  else:
-  col3.metric(label=prettify[i],value=i)
+  col3.metric(label=prettify[i],value=st.session_state.score_df[prettify[i]].loc[pat])
   
 st.write('Please note: Scores are updated as quickly as possible. This tool is for a quick refernce and may not reflect the most updated score.')
 #prettify.insert(0,'unit')
