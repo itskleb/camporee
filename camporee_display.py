@@ -41,7 +41,6 @@ except:
 st.session_state.score_df['patrol'] = st.session_state.score_df.index.map(show_df['name'])
 st.session_state.score_df['unit'] = st.session_state.score_df.index.map(show_df['unit'])
 st.session_state.score_df.set_index('patrol',inplace=True)
-prettify=['unit']
-prettify.append([i for i in st.session_state.score_df.columns if '_adj_score' in i])
-prettify
-#st.session_state.score_df[prettify]
+prettify=[i for i in st.session_state.score_df.columns if '_adj_score' in i]
+prettify.insert(0,'unit')
+st.session_state.score_df[prettify]
