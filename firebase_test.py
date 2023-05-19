@@ -220,15 +220,14 @@ with tab3:
    for col in see_it.columns.tolist():
       x = 0
       for item in see_it[col]:
-        if item in ['unit','total']:
+        if col in ['unit','total']:
           pass
         elif item == 0:
           x+=1
           remain.update({col.split('_')[0]:x})
 
-   df_remain = pd.Series(remain)
+   df_remain = pd.DataFrame(remain,columns = ['Remaining Patrols'])
    df_remain
-   remain
 with tab4:
     st.plotly_chart(px.bar(df_remain,title='Remaining Patrols at each station'))
     st.write('Time Adjustment Function')
