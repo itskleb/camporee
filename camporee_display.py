@@ -23,3 +23,19 @@ if 'db' not in st.session_state:
  
 show_df = pd.DataFrame(st.session_state.db.get().val()).T
 show_df
+
+if 'score_df' not in st.session_state:
+ st.session_state['score_df'] = pd.DataFrame()
+
+try:
+    for clm in stations:
+        if len(st.session_state.score_df) == 0:
+            st.session_state.score_df = show_df[clm].apply(pd.Series)
+            st.session_state.score_df.columns = [clm+'_score',clm+'_time',clm+'_adj_score']
+        else:
+            st.session_state.score_df[clm+"_score"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['score'])
+            st.session_state.score_df[clm+"_time"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['time'])
+            st.session_state.score_df[clm+"_adj_score"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['adj_score'])
+except:
+    pass
+st.session_state.score_df
