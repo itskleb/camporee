@@ -22,7 +22,7 @@ if 'db' not in st.session_state:
  st.session_state['db'] = db
  
 show_df = pd.DataFrame(st.session_state.db.get().val()).T
-show_df.set_index('name',inplace=True)
+show_df
 
 if 'score_df' not in st.session_state:
  st.session_state['score_df'] = pd.DataFrame()
@@ -38,4 +38,7 @@ try:
             st.session_state.score_df[clm+"_adj_score"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['adj_score'])
 except:
     pass
+st.session_state.score_df['patrol'] = st.session_state.index.map(show_df['name'])
+st.session_state.score_df['unit'] = st.session_state.index.map(show_df['unit'])
+st.session_state.score_df.set_index('patrol',inplace=True)
 st.session_state.score_df
