@@ -16,12 +16,11 @@ firebaseConfig = {
 }
 stations = ['Check-In','Archery','Fishing','Shelter Building','Semaphore','Fire Building','Two Person Saw','Orienteering','Cooking','First Aid','Animal Prints','Leader Bonus']
 
-if 'db' not in st.session_state:
- firebase = pyrebase.initialize_app(firebaseConfig)
- db  = firebase.database()
- st.session_state['db'] = db
+firebase = pyrebase.initialize_app(firebaseConfig)
+db  = firebase.database()
  
-show_df = pd.DataFrame(st.session_state.db.get().val()).T
+ 
+show_df = pd.DataFrame(db.get().val()).T
 
 score_df = pd.DataFrame()
 
