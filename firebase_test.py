@@ -218,11 +218,11 @@ with tab3:
    see_it
    remain = {}
    for col in see_it.columns.tolist():
-	x = 0
-	for item in see_it[col]:
-		if item == 0:
-			x+=1
-			remain.update({col.split('_')[0]:x})
+		x = 0
+		for item in see_it[col]:
+			if item == 0:
+				x+=1
+				remain.update({col.split('_')[0]:x})
    #df_remain = pd.DataFrame(remain)
    #df_remain
    remain
