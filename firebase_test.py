@@ -220,15 +220,17 @@ with tab3:
    for col in see_it.columns.tolist():
       x = 0
       for item in see_it[col]:
-        if item == 0:
+        if item in ['unit','total[:
+          pass
+        elif item == 0:
           x+=1
-        remain.update({col.split('_')[0]:x})
+          remain.update({col.split('_')[0]:x})
 
    df_remain = pd.Series(remain)
    df_remain
    remain
 with tab4:
-
+    st.plotly_chart(px.bar(df_remain,title='Remaining Patrols at each station'))
     st.write('Time Adjustment Function')
     st.latex(r'''f(x) = score^{{0.5}}+(log_{2}(time)^2)*-1) ''')
     st.latex(r'''f(y) = f(x) + 10''')
