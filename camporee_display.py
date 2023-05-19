@@ -18,11 +18,11 @@ def station_status(day,hr):
  afternoon = ":green[OPEN] open until 4:00pm 🟢"
  closed = ":red[CLOSED] until 9:00am 🔴"
  if day == 20:
-  if hr >= 9 && hr < 12:
+  if hr >= 9 and hr < 12:
    return(morning)
-  elif hr >= 12 && hr < 13:
+  elif hr >= 12 and hr < 13:
    return(lunch)
-  elif hr >= 13 && hr < 16:
+  elif hr >= 13 and hr < 16:
    return(afternoon)
   else:
    return(":red[CLOSED] for the day 🔴")
