@@ -44,6 +44,11 @@ st.session_state.score_df.set_index('patrol',inplace=True)
 prettify=[i for i in st.session_state.score_df.columns if '_adj_score' in i]
 prettify.insert(0,'unit')
 st.session_state.score_df[prettify]
-
+col1, col2, col3 = st.columns(3)
 for i in range(0,9):
- st.metric(label=prettify[i],value=i)
+ if i%3 == 0:
+  col1.st.metric(label=prettify[i],value=i)
+ elif i%3 == 1:
+  col2.st.metric(label=prettify[i],value=i)
+ else:
+  col3.st.metric(label=prettify[i],value=i)
