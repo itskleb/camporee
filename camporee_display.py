@@ -39,7 +39,7 @@ score_df['patrol'] = score_df.index.map(show_df['name'])
 score_df['unit'] = score_df.index.map(show_df['unit'])
 score_df.set_index('patrol',inplace=True)
 prettify=[i for i in score_df.columns if '_adj_score' in i]
-
+score_df
 pat = st.selectbox(options=score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol')
 st.write(f"{pat}'s Current Station Scores")
 
