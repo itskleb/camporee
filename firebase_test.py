@@ -216,13 +216,13 @@ with tab3:
    col2.metric(label=f"{see_it['total'].index[1]} {see_it['unit'][1]}",value=round(see_it['total'][1],3))
    col3.metric(label=f"{see_it['total'].index[2]} {see_it['unit'][2]}",value=round(see_it['total'][2],3))
    see_it
-   x = 0
    remain = {}
    for col in see_it.columns.tolist():
-	    for item in see_it[col]:
-		    if item == 0:
-			    x+=1
-			    remain.update({col:x})
+	x = 0
+	for item in see_it[col]:
+		if item == 0:
+			x+=1
+			remain.update({col.split('_')[0]:x})
    #df_remain = pd.DataFrame(remain)
    #df_remain
    remain
