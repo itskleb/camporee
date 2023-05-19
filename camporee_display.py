@@ -22,7 +22,7 @@ if 'db' not in st.session_state:
  st.session_state['db'] = db
  
 show_df = pd.DataFrame(st.session_state.db.get().val()).T
-show_df.set_index('name')
+show_df.set_index('name',inplace=True)
 
 if 'score_df' not in st.session_state:
  st.session_state['score_df'] = pd.DataFrame()
