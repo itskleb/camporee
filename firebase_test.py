@@ -96,7 +96,7 @@ with tab1:
         col1, col2 = st.columns(2)
         with col1:
             st.selectbox(label='Patrol',options=st.session_state.patrols,key='pats')
-	          st.selectbox(label='Unit',options=st.session_state.unit,key='units')
+	    st.selectbox(label='Unit',options=st.session_state.unit,key='units')
             st.selectbox(label='Station',options=stations,key='stats')
         with col2:
             st.number_input(label=f"{pat}'s {stat} Score",min_value=0,step=1,key='score')
