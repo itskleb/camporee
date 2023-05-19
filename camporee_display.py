@@ -2,8 +2,12 @@ import pyrebase
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+from datetime import datetime
 
 st.set_page_config(page_title='2023 Aquehonga Camporee',page_icon="🏆")
+
+cur_time = datetime.now()
+st.write(f'Hour: {cur_time.hour} Min: {cur_time.min}')
 morning = ":green[OPEN] until 12:00pm 🟢"
 lunch = ":red[CLOSED] for lunch until 1:00pm 🔴"
 afternoon = ":green[OPEN] open until 4:00pm 🟢"
