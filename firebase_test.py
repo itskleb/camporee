@@ -219,10 +219,10 @@ with tab3:
    x = 0
    remain = {}
    for col in see_it.columns.tolist():
-	for item in see_it[col]:
-		if item == 0:
-			x+=1
-			remain.update({col:x})
+	    for item in see_it[col]:
+		    if item == 0:
+			    x+=1
+			    remain.update({col:x})
    df_remain = pd.DataFrame(remain)
    df_remain
 
