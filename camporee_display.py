@@ -23,36 +23,35 @@ if 'db' not in st.session_state:
  
 show_df = pd.DataFrame(st.session_state.db.get().val()).T
 
-if 'score_df' not in st.session_state:
- st.session_state['score_df'] = pd.DataFrame()
+score_df = pd.DataFrame()
 
 try:
     for clm in stations:
-        if len(st.session_state.score_df) == 0:
-            st.session_state.score_df = show_df[clm].apply(pd.Series)
-            st.session_state.score_df.columns = [clm+'_score',clm+'_time',clm+'_adj_score']
+        if len(score_df) == 0:
+            score_df = show_df[clm].apply(pd.Series)
+            score_df.columns = [clm+'_score',clm+'_time',clm+'_adj_score']
         else:
-            st.session_state.score_df[clm+"_score"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['score'])
-            st.session_state.score_df[clm+"_time"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['time'])
-            st.session_state.score_df[clm+"_adj_score"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['adj_score'])
+            score_df[clm+"_score"] = score_df.index.map(show_df[clm].apply(pd.Series)['score'])
+            score_df[clm+"_time"] = score_df.index.map(show_df[clm].apply(pd.Series)['time'])
+            score_df[clm+"_adj_score"] = score_df.index.map(show_df[clm].apply(pd.Series)['adj_score'])
 except:
     pass
-st.session_state.score_df['patrol'] = st.session_state.score_df.index.map(show_df['name'])
-st.session_state.score_df['unit'] = st.session_state.score_df.index.map(show_df['unit'])
-st.session_state.score_df.set_index('patrol',inplace=True)
-prettify=[i for i in st.session_state.score_df.columns if '_adj_score' in i]
+score_df['patrol'] = score_df.index.map(show_df['name'])
+score_df['unit'] = score_df.index.map(show_df['unit'])
+score_df.set_index('patrol',inplace=True)
+prettify=[i for i in score_df.columns if '_adj_score' in i]
 
-pat = st.selectbox(options=st.session_state.score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol')
+pat = st.selectbox(options=score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol')
 st.write(f"{pat}'s Current Station Scores")
 
 col1, col2, col3 = st.columns(3)
 for i in range(0,9):
  if i%3 == 0:
-  col1.metric(label=prettify[i],value=st.session_state.score_df[prettify[i]].loc[pat])
+  col1.metric(label=prettify[i],value=score_df[prettify[i]].loc[pat])
  elif i%3 == 1:
-  col2.metric(label=prettify[i],value=st.session_state.score_df[prettify[i]].loc[pat])
+  col2.metric(label=prettify[i],value=score_df[prettify[i]].loc[pat])
  else:
-  col3.metric(label=prettify[i],value=st.session_state.score_df[prettify[i]].loc[pat])
+  col3.metric(label=prettify[i],value=score_df[prettify[i]].loc[pat])
   
 st.write('Please note: Scores are updated as quickly as possible. This tool is for a quick refernce and may not reflect the most updated score.')
 #prettify.insert(0,'unit')
