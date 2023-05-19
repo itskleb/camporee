@@ -220,7 +220,7 @@ with tab3:
    for col in see_it.columns.tolist():
       x = 0
       for item in see_it[col]:
-        if item in ['unit','total[:
+        if item in ['unit','total']:
           pass
         elif item == 0:
           x+=1
