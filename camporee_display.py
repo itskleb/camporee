@@ -28,7 +28,7 @@ try:
     for clm in stations:
         if len(score_df) == 0:
             score_df = show_df[clm].apply(pd.Series)
-            score_df.columns = [clm+'_score',clm+'_time',clm+'_adj_score']
+            score_df.columns = [clm+'_score',clm+'_adj_score',clm+'_time']
         else:
             score_df[clm+"_score"] = score_df.index.map(show_df[clm].apply(pd.Series)['score'])
             score_df[clm+"_time"] = score_df.index.map(show_df[clm].apply(pd.Series)['time'])
