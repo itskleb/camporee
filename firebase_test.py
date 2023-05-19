@@ -10,7 +10,7 @@ import plotly.express as px
 #import time
 #// Your web app's Firebase configuration
 
-st.set_page_config(page_title='Camporee Scoring',page_icon="🏆")
+st.set_page_config(page_title='Camporee Scoring',page_icon="✏️")
 
 firebaseConfig = {
  "apiKey": st.secrets['apiKey'],
