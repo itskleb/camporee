@@ -27,7 +27,7 @@ pat = 'Patrol'
 stat = 'Station'
 
 first, second, third = st.columns(3)
-tab1, tab2, tab3, tab4 = st.tabs(['Input Scores','Unit Leaders','Patrol Leaders','Technicals'])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(['Input Scores','Unit Leaders','Patrol Leaders','Technicals','READ ME'])
 def sqrt_time_bonus(score,time):
     ## Best method found. Allows a 1 point loss to be overcome by a 35-55 second increase in speed.
     bonus = 0
@@ -236,7 +236,18 @@ with tab4:
     reset = st.button('⛔Reset Database⛔')
     if reset:
         st.session_state.db = db_construct(st.session_state.patrolID,firebaseConfig)
+   
+ with tab5:
+    st.text("Notes for inputting station scores. Stations that have a time coponent should have the minutes and seconds filled out. If the station does not have a time compnent this can be ignored.")
+    st.text("The Patrol and Unit must match. An error will be raised if they do not. Scores can not be overwitten unless Override Mode is turned on.")
+    st.text("When Override Mode is on, any previsouly entered score can be overwitten. A yellow warning banner will appear to notify the user that Override Mode is on.")
+    st.text("Only use Override Mode by first turning it on, changing the score, then immediately turning it off.")
+    st.text("The leader pages will sometimes require the browser to be refreshed to show updates.")
+    st.text("The technicals page shows the formula used to apply a bonus for stations with a time component. A graph provides a visual of how this impacts given score and time parings.")
+    st.text("A Graho at the top keeps track of how many outstanding score sheets exist for each station. This can be used to guide sheet pickups and control station overcrowding.")
+    st.text("Do not use the Reset Database button. Contact Caleb before using that option.")
 
+	
 #with tab2:
 #"""    with first:
 #        st.metric(label=Total.index[0], value = Total.iloc[0])
