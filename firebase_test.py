@@ -224,8 +224,8 @@ with tab3:
           x+=1
         remain.update({col.split('_')[0]:x})
 
-   #df_remain = pd.DataFrame(remain)
-   #df_remain
+   df_remain = pd.Series(remain)
+   df_remain
    remain
 with tab4:
 
