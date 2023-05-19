@@ -237,7 +237,7 @@ with tab4:
     if reset:
         st.session_state.db = db_construct(st.session_state.patrolID,firebaseConfig)
    
- with tab5:
+with tab5:
     st.text("Notes for inputting station scores. Stations that have a time coponent should have the minutes and seconds filled out. If the station does not have a time compnent this can be ignored.")
     st.text("The Patrol and Unit must match. An error will be raised if they do not. Scores can not be overwitten unless Override Mode is turned on.")
     st.text("When Override Mode is on, any previsouly entered score can be overwitten. A yellow warning banner will appear to notify the user that Override Mode is on.")
