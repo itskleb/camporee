@@ -11,7 +11,7 @@ day = cur_time.day
 hr = cur_time.hour-6
 min = cur_time.minute
 
-st.write(f'Date: {cur_time.day} Hour: {cur_time.hour} Min: {cur_time.minute}')
+st.write(f'Date: {day} Hour: {hr} Min: {min}')
 def station_status(day,hr):
  morning = ":green[OPEN] until 12:00pm 🟢"
  lunch = ":red[CLOSED] for lunch until 1:00pm 🔴"
