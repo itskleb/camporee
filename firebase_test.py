@@ -238,14 +238,14 @@ with tab4:
         st.session_state.db = db_construct(st.session_state.patrolID,firebaseConfig)
    
 with tab5:
-    st.write("Notes for inputting station scores. Stations that have a time coponent should have the minutes and seconds filled out. If the station does not have a time compnent this can be ignored.")
-    st.write("The Patrol and Unit must match. An error will be raised if they do not. Scores can not be overwitten unless Override Mode is turned on.")
-    st.write("When Override Mode is on, any previsouly entered score can be overwitten. A yellow warning banner will appear to notify the user that Override Mode is on.")
-    st.write("Only use Override Mode by first turning it on, changing the score, then immediately turning it off.")
-    st.write("The leader pages will sometimes require the browser to be refreshed to show updates.")
-    st.write("The technicals page shows the formula used to apply a bonus for stations with a time component. A graph provides a visual of how this impacts given score and time parings.")
-    st.write("A Graho at the top keeps track of how many outstanding score sheets exist for each station. This can be used to guide sheet pickups and control station overcrowding.")
-    st.write("Do not use the Reset Database button. Contact Caleb before using that option.")
+    st.write(" - Notes for inputting station scores. Stations that have a time coponent should have the minutes and seconds filled out. If the station does not have a time compnent this can be ignored.")
+    st.write(" - The Patrol and Unit must match. An error will be raised if they do not. Scores can not be overwitten unless Override Mode is turned on.")
+    st.write(" - When Override Mode is on, any previsouly entered score can be overwitten. A yellow warning banner will appear to notify the user that Override Mode is on.")
+    st.write(" - Only use Override Mode by first turning it on, changing the score, then immediately turning it off.")
+    st.write(" - The leader pages will sometimes require the browser to be refreshed to show updates.")
+    st.write(" - The technicals page shows the formula used to apply a bonus for stations with a time component. A graph provides a visual of how this impacts given score and time parings.")
+    st.write(" - A Graph at the top keeps track of how many outstanding score sheets exist for each station. This can be used to guide sheet pickups and control station overcrowding.")
+    st.write(" - Do not use the Reset Database button. Contact Caleb before using that option.")
 
 	
 #with tab2:
