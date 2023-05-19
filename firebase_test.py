@@ -175,13 +175,14 @@ score_list = [col for col in temp_list if '_adj_score' in col]
 
 
 try: 
- if lead_button:
+ 
     st.session_state.adj_df = st.session_state.score_df.reset_index()
     score_list.append('unit')
     st.session_state.adj_df['unit'] = st.session_state.adj_df['index'].apply(lambda x: x.split('***')[1])
     st.session_state.adj_df['patrol'] = st.session_state.adj_df['index'].apply(lambda x: x.split('***')[0])
     scoreseries = st.session_state.adj_df[score_list].groupby(by='unit').sum().sum(axis=1)/st.session_state.adj_df[score_list].groupby(by='unit').count()[temp_list[2]]
     scoreseries = pd.DataFrame(scoreseries)
+  if lead_button:
     scoreseries['num_patrols']=scoreseries.index.map(st.session_state.adj_df[score_list].groupby(by='unit').count()[temp_list[2]])
     scoreseries.columns=['Average Score','Number of Patrols']
     scoreseries.sort_values(by='Average Score',ascending=False,inplace=True)
