@@ -160,7 +160,7 @@ try:
 except:
     pass
 
-lead_button = st.sidebar.button('Process Leaders')
+#lead_button = st.sidebar.button('Process Leaders')
 if 'ALL' not in filt:
     temp_list = []
     for i in filt:
@@ -182,10 +182,9 @@ try:
     st.session_state.adj_df['patrol'] = st.session_state.adj_df['index'].apply(lambda x: x.split('***')[0])
     scoreseries = st.session_state.adj_df[score_list].groupby(by='unit').sum().sum(axis=1)/st.session_state.adj_df[score_list].groupby(by='unit').count()[temp_list[2]]
     scoreseries = pd.DataFrame(scoreseries)
-    if lead_button:
-      scoreseries['num_patrols']=scoreseries.index.map(st.session_state.adj_df[score_list].groupby(by='unit').count()[temp_list[2]])
-      scoreseries.columns=['Average Score','Number of Patrols']
-      scoreseries.sort_values(by='Average Score',ascending=False,inplace=True)
+    scoreseries['num_patrols']=scoreseries.index.map(st.session_state.adj_df[score_list].groupby(by='unit').count()[temp_list[2]])
+    scoreseries.columns=['Average Score','Number of Patrols']
+    scoreseries.sort_values(by='Average Score',ascending=False,inplace=True)
 except:
     pass
 with tab2:
