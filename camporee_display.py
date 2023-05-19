@@ -11,7 +11,7 @@ day = cur_time.day
 hr = cur_time.hour-4
 min = cur_time.minute
 
-st.write(f'Date: {day} Hour: {hr} Min: {min}')
+st.write(f'Last page refresh occurred at {hr}:{min}')
 def station_status(day,hr):
  morning = ":green[OPEN] until 12:00pm 🟢"
  lunch = ":red[CLOSED] for lunch until 1:00pm 🔴"
