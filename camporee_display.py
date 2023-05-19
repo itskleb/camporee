@@ -42,15 +42,18 @@ st.session_state.score_df['unit'] = st.session_state.score_df.index.map(show_df[
 st.session_state.score_df.set_index('patrol',inplace=True)
 prettify=[i for i in st.session_state.score_df.columns if '_adj_score' in i]
 
-pat = st.multiselect(options=st.session_state.score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol')
+pat = st.multiselect(options=st.session_state.score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol',default='3M')
+st.write(f"{pat}'s Current Station Scores")
 
 col1, col2, col3 = st.columns(3)
 for i in range(0,9):
  if i%3 == 0:
-  col1.metric(label=prettify[i],value=st.session_state.score_df.loc[pat,prettify[i]])
+  col1.metric(label=prettify[i],value=st.session_state.score_df[prettify[i]].loc[pat])
  elif i%3 == 1:
   col2.metric(label=prettify[i],value=i)
  else:
   col3.metric(label=prettify[i],value=i)
+  
+st.write('Please note: Scores are updated as quickly as possible. This tool is for a quick refernce and may not reflect the most updated score.')
 #prettify.insert(0,'unit')
 #st.session_state.score_df[prettify]
