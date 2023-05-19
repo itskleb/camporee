@@ -42,7 +42,7 @@ st.session_state.score_df['unit'] = st.session_state.score_df.index.map(show_df[
 st.session_state.score_df.set_index('patrol',inplace=True)
 prettify=[i for i in st.session_state.score_df.columns if '_adj_score' in i]
 
-pat = st.selectbox(options=st.session_state.score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol',default='3M')
+pat = st.selectbox(options=st.session_state.score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol')
 st.write(f"{pat}'s Current Station Scores")
 
 col1, col2, col3 = st.columns(3)
