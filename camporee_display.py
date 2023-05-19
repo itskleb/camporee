@@ -22,7 +22,6 @@ if 'db' not in st.session_state:
  st.session_state['db'] = db
  
 show_df = pd.DataFrame(st.session_state.db.get().val()).T
-show_df
 
 if 'score_df' not in st.session_state:
  st.session_state['score_df'] = pd.DataFrame()
@@ -42,8 +41,9 @@ st.session_state.score_df['patrol'] = st.session_state.score_df.index.map(show_d
 st.session_state.score_df['unit'] = st.session_state.score_df.index.map(show_df['unit'])
 st.session_state.score_df.set_index('patrol',inplace=True)
 prettify=[i for i in st.session_state.score_df.columns if '_adj_score' in i]
-prettify.insert(0,'unit')
-st.session_state.score_df[prettify]
+
+pat = st.multiselect(options=st.session_state.score_df.patrol.unique().tolist(),title='Select Patrol')
+
 col1, col2, col3 = st.columns(3)
 for i in range(0,9):
  if i%3 == 0:
@@ -52,3 +52,5 @@ for i in range(0,9):
   col2.metric(label=prettify[i],value=i)
  else:
   col3.metric(label=prettify[i],value=i)
+#prettify.insert(0,'unit')
+#st.session_state.score_df[prettify]
