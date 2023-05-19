@@ -226,8 +226,8 @@ with tab3:
           x+=1
           remain.update({col.split('_')[0]:x})
 
-   df_remain = pd.DataFrame(remain,columns = ['Remaining Patrols'])
-   df_remain
+   df_remain = pd.Series(remain)
+   df_remain = pd.DataFrame(df_remain,columns = ['Remaining Patrols'])
 with tab4:
     st.plotly_chart(px.bar(df_remain,title='Remaining Patrols at each station'))
     st.write('Time Adjustment Function')
