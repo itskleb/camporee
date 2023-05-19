@@ -38,7 +38,7 @@ try:
             st.session_state.score_df[clm+"_adj_score"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['adj_score'])
 except:
     pass
-st.session_state.score_df['patrol'] = st.session_state.index.map(show_df['name'])
-st.session_state.score_df['unit'] = st.session_state.index.map(show_df['unit'])
+st.session_state.score_df['patrol'] = st.session_state.score_df.index.map(show_df['name'])
+st.session_state.score_df['unit'] = st.session_state.score_df.index.map(show_df['unit'])
 st.session_state.score_df.set_index('patrol',inplace=True)
 st.session_state.score_df
