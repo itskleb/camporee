@@ -160,7 +160,7 @@ try:
 except:
     pass
 
-#lead_button = st.sidebar.button('Process Leaders')
+lead_button = st.sidebar.button('Process Leaders')
 if 'ALL' not in filt:
     temp_list = []
     for i in filt:
@@ -174,7 +174,8 @@ score_list = [col for col in temp_list if '_adj_score' in col]
 
 
 
-try: #if lead_button:
+try: 
+ if lead_button:
     st.session_state.adj_df = st.session_state.score_df.reset_index()
     score_list.append('unit')
     st.session_state.adj_df['unit'] = st.session_state.adj_df['index'].apply(lambda x: x.split('***')[1])
