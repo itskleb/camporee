@@ -16,7 +16,9 @@ firebaseConfig = {
 }
 stations = ['Check-In','Archery','Fishing','Shelter Building','Semaphore','Fire Building','Two Person Saw','Orienteering','Cooking','First Aid','Animal Prints','Leader Bonus']
 
-if 'db' not st.session_state:
+if 'db' not in st.session_state:
  firebase = pyrebase.initialize_app(firebaseConfig)
  db  = firebase.database()
  st.session_state['db'] = db
+ 
+
