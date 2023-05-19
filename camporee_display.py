@@ -42,7 +42,7 @@ st.session_state.score_df['unit'] = st.session_state.score_df.index.map(show_df[
 st.session_state.score_df.set_index('patrol',inplace=True)
 prettify=[i for i in st.session_state.score_df.columns if '_adj_score' in i]
 
-pat = st.multiselect(options=st.session_state.score_df.patrol.unique().tolist(),title='Select Patrol')
+pat = st.multiselect(options=st.session_state.score_df['patrol'].unique().tolist(),title='Select Patrol')
 
 col1, col2, col3 = st.columns(3)
 for i in range(0,9):
