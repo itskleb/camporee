@@ -228,7 +228,7 @@ with tab3:
    df_remain = pd.Series(remain)
    df_remain = pd.DataFrame(df_remain,columns = ['Remaining Patrols'])
 with tab4:
-    st.plotly_chart(px.bar(df_remain,title='Remaining Patrols at each station'))
+    st.plotly_chart(px.bar(df_remain,title='Remaining Patrols at each station',text='Remaining Patrols'))
     st.write('Time Adjustment Function')
     st.latex(r'''f(x) = score^{{0.5}}+(log_{2}(time)^2)*-1) ''')
     st.latex(r'''f(y) = f(x) + 10''')
