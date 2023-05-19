@@ -100,14 +100,11 @@ with tab1:
             st.selectbox(label='Station',options=stations,key='stats')
         with col2:
             st.number_input(label=f"{pat}'s {stat} Score",min_value=0,step=1,key='score')
-            if st.session_state.stats in ['Fire Building','Two Person Saw']:
-                st.number_input(label = 'Minutes',min_value=0,step=1,key='mins')
-                st.number_input(label = 'Seconds',min_value=0,step=1,key='secs')
+            #if st.session_state.stats in ['Fire Building','Two Person Saw']:
+            st.number_input(label = 'Minutes',min_value=0,step=1,key='mins')
+            st.number_input(label = 'Seconds',min_value=0,step=1,key='secs')
         patrolid = st.session_state.pats + "***" + st.session_state.units
         submitted = st.form_submit_button('Submit')
-
-
-
         st.write(patrolid)
 
     if submitted:
