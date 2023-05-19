@@ -4,7 +4,11 @@ import plotly.express as px
 import streamlit as st
 
 st.set_page_config(page_title='2023 Aquehonga Camporee',page_icon="🏆")
-
+morning = ":green[OPEN] until 12:00pm 🟢"
+lunch = ":red[CLOSED] for lunch until 1:00pm 🔴"
+afternoon = ":green[OPEN] open until 4:00pm 🟢"
+closed = ":red[CLOSED] until 9:00am 🔴"
+st.title(f"Station status: {closed}")
 firebaseConfig = {
  "apiKey": st.secrets['apiKey'],
  "authDomain": st.secrets['authDomain'],
