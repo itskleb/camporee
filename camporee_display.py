@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-st.set_page_config(page_title='Camporee Scoring',page_icon="🏆")
+st.set_page_config(page_title='2023 Aquehonga Camporee',page_icon="🏆")
 
 firebaseConfig = {
  "apiKey": st.secrets['apiKey'],
