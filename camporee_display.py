@@ -56,6 +56,6 @@ for i in range(0,9):
  else:
   col3.metric(label=prettify[i].split('_')[0],value=score_df[prettify[i]].loc[pat])
   
-st.write('Please note: Scores are updated as quickly as possible. This tool is for a quick reference and may not reflect the most updated score.')
+st.write('Please note: Scores are updated as quickly as possible. This tool is for reference and may not reflect the most updated score.')
 #prettify.insert(0,'unit')
 #score_df[prettify]
