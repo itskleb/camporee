@@ -21,7 +21,7 @@ firebaseConfig = {
   "appId": st.secrets['appId'],
   "databaseURL": st.secrets['databaseURL']
 }
-stations = ['Check-In','Archery','Fishing','Shelter Building','Signaling','Fire Building','Two Person Saw','Orienteering','Cooking','Animal Prints','Leader Bonus']
+stations = ['Check-In','Archery','Fishing','Shelter Building','Semaphore','Fire Building','Two Person Saw','Orienteering','Cooking','First Aid','Animal Prints','Leader Bonus']
 
 pat = 'Patrol'
 stat = 'Station'
@@ -62,7 +62,7 @@ def db_construct(item_list,fbConfig,flag=True):
         pass
     return(db)
 
-filt = st.sidebar.multiselect(default= 'ALL',label='Filter Options',options=['ALL','Check-In','Archery','Fishing','Shelter Building','Signaling','Fire Building','Two Person Saw','Orienteering','Cooking','Animal Prints','Leader Bonus'])
+filt = st.sidebar.multiselect(default= 'ALL',label='Filter Options',options=['ALL','Check-In','Archery','Fishing','Shelter Building','Semaphore','Fire Building','Two Person Saw','Orienteering','Cooking','First Aid','Animal Prints','Leader Bonus'])
 if 'graph_df' not in st.session_state:
     graph_df = pd.DataFrame()
     for s in range(0,26):
@@ -96,14 +96,13 @@ with tab1:
         col1, col2 = st.columns(2)
         with col1:
             st.selectbox(label='Patrol',options=st.session_state.patrols,key='pats')
+	          st.selectbox(label='Unit',options=st.session_state.unit,key='units')
             st.selectbox(label='Station',options=stations,key='stats')
-            st.number_input(label = 'Minutes',min_value=0,step=1,key='mins')
-
         with col2:
-            st.selectbox(label='Unit',options=st.session_state.unit,key='units')
-            st.number_input(label=f"{pat}'s {stat} Score",min_value=0,max_value=25,step=1,key='score')
-
-            st.number_input(label = 'Seconds',min_value=0,step=1,key='secs')
+            st.number_input(label=f"{pat}'s {stat} Score",min_value=0,step=1,key='score')
+            if st.session_state.stats in ['Fire Building','Two Person Saw']:
+                st.number_input(label = 'Minutes',min_value=0,step=1,key='mins')
+                st.number_input(label = 'Seconds',min_value=0,step=1,key='secs')
         patrolid = st.session_state.pats + "***" + st.session_state.units
         submitted = st.form_submit_button('Submit')
 
@@ -112,7 +111,7 @@ with tab1:
         st.write(patrolid)
 
     if submitted:
-        if st.session_state.stats in ['Shelter Building','Signaling','Fire Building','Two Person Saw','Orienteering','Cooking']:
+        if st.session_state.stats in ['Fire Building','Two Person Saw']:
             st.session_state.time = st.session_state.mins*60 + st.session_state.secs
         else:
             st.session_state.time=0
