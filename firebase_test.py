@@ -223,9 +223,9 @@ with tab3:
 		    if item == 0:
 			    x+=1
 			    remain.update({col:x})
-   df_remain = pd.DataFrame(remain)
-   df_remain
-
+   #df_remain = pd.DataFrame(remain)
+   #df_remain
+   remain
 with tab4:
 
     st.write('Time Adjustment Function')
