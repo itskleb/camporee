@@ -47,7 +47,7 @@ pat = st.multiselect(options=st.session_state.score_df.reset_index()['patrol'].u
 col1, col2, col3 = st.columns(3)
 for i in range(0,9):
  if i%3 == 0:
-  col1.metric(label=prettify[i],value=i)
+  col1.metric(label=prettify[i],value=st.session_state.score_df.loc[pat,prettify[i]])
  elif i%3 == 1:
   col2.metric(label=prettify[i],value=i)
  else:
