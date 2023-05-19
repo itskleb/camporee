@@ -217,14 +217,14 @@ with tab3:
    col3.metric(label=f"{see_it['total'].index[2]} {see_it['unit'][2]}",value=round(see_it['total'][2],3))
    see_it
    x = 0
-	 remain = {}
-	 for col in see_it.columns.tolist():
-			for item in see_it[col]:
-				if item == 0:
-					x+=1
-					remain.update({col:x})
-		df_remain = pd.DataFrame(remain)
-		df_remain
+   remain = {}
+   for col in see_it.columns.tolist():
+	for item in see_it[col]:
+		if item == 0:
+			x+=1
+			remain.update({col:x})
+   df_remain = pd.DataFrame(remain)
+   df_remain
 
 with tab4:
 
