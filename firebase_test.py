@@ -194,7 +194,7 @@ with tab2:
         col2.metric(label=scoreseries.index[1],value=round(scoreseries.iloc[1,0],3))
         col3.metric(label=scoreseries.index[2],value=round(scoreseries.iloc[2,0],3))
         scoreseries
-        st.balloons()
+        #st.balloons()
     except:
         pass
 
