@@ -21,4 +21,5 @@ if 'db' not in st.session_state:
  db  = firebase.database()
  st.session_state['db'] = db
  
-
+show_df = pd.DataFrame(st.session_state.db.get().val()).T
+show_df
