@@ -39,19 +39,19 @@ score_df['patrol'] = score_df.index.map(show_df['name'])
 score_df['unit'] = score_df.index.map(show_df['unit'])
 score_df.set_index('patrol',inplace=True)
 prettify=[i for i in score_df.columns if '_adj_score' in i]
-score_df
+
 pat = st.selectbox(options=score_df.reset_index()['patrol'].unique().tolist(),label='Select Patrol')
 st.write(f"{pat}'s Current Station Scores")
 
 col1, col2, col3 = st.columns(3)
 for i in range(0,9):
  if i%3 == 0:
-  col1.metric(label=prettify[i],value=score_df[prettify[i]].loc[pat])
+  col1.metric(label=prettify[i].split('_')[0],value=score_df[prettify[i]].loc[pat])
  elif i%3 == 1:
-  col2.metric(label=prettify[i],value=score_df[prettify[i]].loc[pat])
+  col2.metric(label=prettify[i].split('_')[0],value=score_df[prettify[i]].loc[pat])
  else:
-  col3.metric(label=prettify[i],value=score_df[prettify[i]].loc[pat])
+  col3.metric(label=prettify[i].split('_')[0],value=score_df[prettify[i]].loc[pat])
   
 st.write('Please note: Scores are updated as quickly as possible. This tool is for a quick refernce and may not reflect the most updated score.')
-prettify.insert(0,'unit')
-score_df[prettify]
+#prettify.insert(0,'unit')
+#score_df[prettify]
