@@ -7,8 +7,8 @@ from datetime import datetime
 st.set_page_config(page_title='2023 Aquehonga Camporee',page_icon="🏆")
 
 cur_time = datetime.now()
-day = 20 #cur_time.day
-hr = 11 #cur_time.hour-4
+day = cur_time.day
+hr = cur_time.hour-4
 min = cur_time.minute
 
 st.write(f'Date: {day} Hour: {hr} Min: {min}')
