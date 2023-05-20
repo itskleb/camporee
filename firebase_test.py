@@ -108,7 +108,7 @@ with tab1:
         st.write(patrolid)
 
     if submitted:
-        if st.session_state.stats in ['Fire Building','Two Person Saw']:
+        if st.session_state.stats in ['Fire Building','Two Person Saw','Semaphore']:
             st.session_state.time = st.session_state.mins*60 + st.session_state.secs
         else:
             st.session_state.time=0
