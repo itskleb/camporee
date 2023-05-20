@@ -148,7 +148,7 @@ try:
     for clm in stations:
         if len(st.session_state.score_df) == 0:
             st.session_state.score_df = show_df[clm].apply(pd.Series)
-            st.session_state.score_df.columns = [clm+'_score',clm+'_time',clm+'_adj_score']
+            st.session_state.score_df.columns = [clm+'_score',clm+'_adj_score',clm+'_time']
         else:
             st.session_state.score_df[clm+"_score"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['score'])
             st.session_state.score_df[clm+"_time"] = st.session_state.score_df.index.map(show_df[clm].apply(pd.Series)['time'])
